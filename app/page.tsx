@@ -3,22 +3,27 @@
 import { useState } from 'react';
 import ClassSelectionPage from './class-selection/page';
 import FinalizationPage from './finalization/page';
+import ComingSoonPage from './coming-soon/page';
+
+type HomeStep = 'class-selection' | 'finalization' | 'coming-soon';
 
 export default function Home() {
-  const [showFinalization, setShowFinalization] = useState(false);
+  const [currentStep, setCurrentStep] = useState<HomeStep>('class-selection');
 
   const handleClassSelectionConfirm = () => {
-    setShowFinalization(true);
+    setCurrentStep('finalization');
   };
 
   const handleFinalizationComplete = () => {
-    setShowFinalization(false);
+    setCurrentStep('coming-soon');
   };
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: 'var(--cr-color-white)' }}>
-      {showFinalization ? (
+      {currentStep === 'finalization' ? (
         <FinalizationPage onComplete={handleFinalizationComplete} />
+      ) : currentStep === 'coming-soon' ? (
+        <ComingSoonPage />
       ) : (
         <ClassSelectionPage onConfirm={handleClassSelectionConfirm} />
       )}

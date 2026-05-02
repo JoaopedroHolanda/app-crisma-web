@@ -25,8 +25,6 @@ export default function RootLayout({
     setActiveTab(tab);
   };
 
-  // Determine if BottomNavigation should be shown. 
-  // It shouldn't be shown on the finalization page, nor on the class selection page (as per its mockup).
   const hideNavigation = pathname === '/finalization' || pathname === '/class-selection' || pathname === '/';
 
   return (
@@ -38,9 +36,7 @@ export default function RootLayout({
         <div style={{ flexGrow: 1, paddingBottom: hideNavigation ? '0' : '60px' }}>
           {children}
         </div>
-        {!hideNavigation && (
-          <BottomNavigation activeTab={activeTab} onTabChange={handleTabChange} />
-        )}
+        
       </body>
     </html>
   );
