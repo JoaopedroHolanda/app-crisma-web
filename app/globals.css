@@ -25,37 +25,32 @@
   --cr-spacing-lg: 1.5rem; /* 24px */
   --cr-spacing-xl: 2rem; /* 32px */
   --cr-border-radius-md: 12px; /* For action buttons and class buttons */
+}
 
-  /* Universal reset, moved into :root for consistency with other variables */
+* {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 html,
 body {
   max-width: 100vw;
+  min-height: 100%;
   overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: var(--cr-color-white);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--cr-color-dark-text);
+  background-color: var(--cr-color-white);
   font-family: var(--cr-font-family-sans-serif); /* Apply global font family */
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
