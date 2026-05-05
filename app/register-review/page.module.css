@@ -105,6 +105,34 @@
   gap: 18px;
 }
 
+.termsAgreement {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  color: var(--cr-color-medium-grey);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.termsCheckbox {
+  width: 18px;
+  height: 18px;
+  margin: 1px 0 0;
+  accent-color: var(--cr-color-dark-text);
+  cursor: pointer;
+}
+
+.termsLink {
+  color: var(--cr-color-dark-text);
+  font-weight: var(--cr-font-weight-semibold);
+  text-decoration: none;
+}
+
+.termsLink:hover {
+  text-decoration: underline;
+}
+
 @media (max-height: 760px) {
   .content {
     padding-top: 24px;

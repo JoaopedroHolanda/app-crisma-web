@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+import Link from 'next/link';
 import { FormProvider, useForm } from 'react-hook-form';
 import HookFormInput from '@/components/form/HookFormInput/HookFormInput';
 import AppButton from '@/components/ui/buttons/AppButton';
@@ -36,6 +38,7 @@ export default function RegisterReviewPage({
   onConfirm,
   onBack,
 }: RegisterReviewPageProps) {
+  const [hasAcceptedTerms, setHasAcceptedTerms] = useState(false);
   const methods = useForm<RegistrationFormData>({
     defaultValues: data ?? EMPTY_REGISTRATION_DATA,
   });
@@ -68,7 +71,29 @@ export default function RegisterReviewPage({
             </div>
 
             <footer className={styles.actions}>
-              <AppButton type="button" onClick={onConfirm}>Confirmar</AppButton>
+              <label className={styles.termsAgreement}>
+                <input
+                  type="checkbox"
+                  className={styles.termsCheckbox}
+                  checked={hasAcceptedTerms}
+                  onChange={(event) => setHasAcceptedTerms(event.target.checked)}
+                />
+                <span>
+                  Li e aceito os{' '}
+                  <Link className={styles.termsLink} href="/terms-of-use" target="_blank">
+                    Termos de Uso
+                  </Link>{' '}
+                  e a{' '}
+                  <Link className={styles.termsLink} href="/privacy-policy" target="_blank">
+                    Política de Privacidade
+                  </Link>
+                  .
+                </span>
+              </label>
+
+              <AppButton type="button" onClick={onConfirm} disabled={!hasAcceptedTerms}>
+                Confirmar
+              </AppButton>
               <AppOutlinedButton type="button" onClick={onBack}>Voltar</AppOutlinedButton>
             </footer>
           </form>

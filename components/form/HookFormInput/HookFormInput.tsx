@@ -99,7 +99,7 @@ export default function HookFormInput<TFormValues extends FieldValues>({
   }, [maskType, rest.maxLength]);
 
   const registration = register(name, {
-    required: required ? 'Campo obrigatorio' : false,
+    required: required ? 'Campo obrigatório' : false,
     ...validation,
   });
 

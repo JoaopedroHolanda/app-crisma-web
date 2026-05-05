@@ -7,4 +7,10 @@
 
 .link {
   color: #90B1AE;
+  font-weight: var(--cr-font-weight-semibold);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
 }

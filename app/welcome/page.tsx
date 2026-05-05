@@ -28,7 +28,7 @@ export default function WelcomePage({ onStart }: WelcomePageProps) {
             Seja bem vindo ao CrismaApp!
           </h1>
           <p className={styles.subtitle}>
-            O novo app de gestao da crisma!
+            O novo app de gestão da crisma!
           </p>
         </div>
 

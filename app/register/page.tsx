@@ -47,7 +47,7 @@ export default function RegisterPage({ defaultValues, onSubmit }: RegisterPagePr
                 validation={{
                   pattern: {
                     value: EMAIL_PATTERN,
-                    message: 'Informe um e-mail valido',
+                    message: 'Informe um e-mail válido',
                   },
                 }}
               />
